@@ -1,10 +1,12 @@
 import telebot
 import webbrowser
 from telebot import types
+
 bot = telebot.TeleBot('7103302089:AAHjQgCYSMtaU_qtTMpuCC_zsjroJJRHnVg')
 @bot.message_handler(commands=['site', 'web', 'website'])
 def site(message):
     webbrowser.open('https://neurotech.ru/')
+
 
 @bot.message_handler(content_types=['photo'])
 def get_photo(message):
@@ -19,7 +21,7 @@ def main(message):
 @bot.message_handler()
 def main(message):
     if message.text.lower()=='help':
-        bot.send_message(message.chat.id, '<h3> Support Neurotech +79085602460 </h3>')
+        bot.send_message(message.chat.id, 'Support Neurotech +79085602460')
     elif message.text.lower()=='id':
         bot.send_message(message.chat.id, f'Номер идентификатора: {message.from_user.id}')
 
