@@ -14,6 +14,9 @@ def get_photo(message):
     markup.add(types.InlineKeyboardButton('Перейти на сайт', url='https://google.com'))
     bot.reply_to(message, 'Ашалееть', reply_markup=markup)
 
+@bot.message_handler(commands=['hope'])
+def main(message):
+    bot.send_message(message.chat.id,'Все получится, братик')
 @bot.message_handler(commands=['start', 'hello', 'poop'])
 def main(message):
     bot.send_message(message.chat.id, f'Привет, {message.from_user.first_name} {message.from_user.last_name}')
@@ -24,5 +27,7 @@ def main(message):
         bot.send_message(message.chat.id, 'Support Neurotech +79085602460')
     elif message.text.lower()=='id':
         bot.send_message(message.chat.id, f'Номер идентификатора: {message.from_user.id}')
+
+
 
 bot.polling(none_stop=True)
